@@ -5,6 +5,7 @@ const images = [
     'https://images.pexels.com/photos/1402787/pexels-photo-1402787.jpeg?auto=compress&cs=tinysrgb&w=600'
   ];
 const img = document.querySelector("#carouselImg");
+let currIndex = 0;
 
 function updateImage(){
     if(images.length>0){
@@ -13,7 +14,7 @@ function updateImage(){
 }
 updateImage();
 
-let currIndex = 0;
+
 function nextImg(){
     try{
         

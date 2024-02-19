@@ -30,6 +30,18 @@ function nextImg(){
         console.log("something went wrong: "+err);
     }
 }
+
+function previousImg(){
+    if(currIndex>0){
+        currIndex--;
+    }
+    else{
+        currIndex=images.length-1;
+    }
+    img.src=images[currIndex];
+    console.log("clicked PreviousBtn:"+currIndex);
+}
+  
   
 
 

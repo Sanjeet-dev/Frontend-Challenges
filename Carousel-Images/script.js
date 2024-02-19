@@ -12,12 +12,9 @@ function updateImage(){
     img.src=images[0];
     }
 }
-updateImage();
 
 
 function nextImg(){
-    try{
-        
     if(currIndex>=0 && currIndex<images.length-1) {
         currIndex++;
         console.log("clicked:"+currIndex);}
@@ -25,10 +22,6 @@ function nextImg(){
         currIndex=0;
     }
     img.src=images[currIndex];
-}
-    catch(err){
-        console.log("something went wrong: "+err);
-    }
 }
 
 function previousImg(){
@@ -41,6 +34,20 @@ function previousImg(){
     img.src=images[currIndex];
     console.log("clicked PreviousBtn:"+currIndex);
 }
+autoScheduleSlide();
+function autoScheduleSlide(){
+    console.log("auto slide working");
+    setInterval(()=>{
+        nextImg();
+    },3000);
+    
+}
+
+//initially updating images with first images
+updateImage();
+
+// auto sliding the images in next manner
+autoScheduleSlide();
   
   
 

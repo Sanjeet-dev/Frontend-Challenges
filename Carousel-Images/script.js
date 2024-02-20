@@ -6,6 +6,8 @@ const images = [
   ];
 const img = document.querySelector("#carouselImg");
 let currIndex = 0;
+let isManualNavigation=false;
+let timeoutId;
 
 function updateImage(){
     if(images.length>0){
@@ -22,6 +24,9 @@ function nextImg(){
         currIndex=0;
     }
     img.src=images[currIndex];
+    stopAutoSlide(); // Stop auto-sliding when manually navigating
+    isManualNavigation = true; // Set manual navigation flag
+    setTimeout(autoScheduleSlide, 3000);
 }
 
 function previousImg(){
@@ -33,15 +38,30 @@ function previousImg(){
     }
     img.src=images[currIndex];
     console.log("clicked PreviousBtn:"+currIndex);
+    stopAutoSlide(); // Stop auto-sliding when manually navigating
+    isManualNavigation = true; // Set manual navigation flag
+    setTimeout(autoScheduleSlide, 3000);
 }
-autoScheduleSlide();
+
+// auto sliding feature
 function autoScheduleSlide(){
     console.log("auto slide working");
-    setInterval(()=>{
+    if(!isManualNavigation){
+   timeoutId= setTimeout(()=>{
         nextImg();
+        autoScheduleSlide();
     },3000);
+}
     
 }
+
+// stop the sliding feature on manually sliding
+function stopAutoSlide(){
+    
+    clearTimeout(timeoutId);
+    isManualNavigation=false;
+}
+
 
 //initially updating images with first images
 updateImage();

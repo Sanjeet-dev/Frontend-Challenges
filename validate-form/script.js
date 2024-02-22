@@ -21,3 +21,7 @@ document.querySelector("#form").addEventListener("submit",function(event){
     }
     alert(successmsg);
 });
+
+document.querySelector("#clear").addEventListener('click', function(event){
+document.querySelector("#form").reset();
+})

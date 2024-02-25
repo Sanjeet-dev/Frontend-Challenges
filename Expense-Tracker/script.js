@@ -51,20 +51,36 @@ addExpense.addEventListener("click",()=>{
 function displayExpenses(){
 let ulList = document.querySelector("#expenseList");
 let template = document.querySelector("#expenseTemplate");
-let total = document.querySelector("#totalAmount");
+//let total = document.querySelector("#totalAmount");
 
-let totalAmount=expenses.reduce((acc,expense)=> acc+ parseFloat(expense.amount),0);
-total.textContent = totalAmount.toFixed(2);
-console.log(total.value);
+ulList.innerHTML = "";
 
+expenses.forEach((expense)=>{
 
-    ulList.innerHTML = "";
-    expenses.forEach((expense)=>{
         let listItem = document.importNode(template.content,true);
         listItem.querySelector(".expense-name").textContent=expense.name;
         listItem.querySelector(".expense-amount").textContent=expense.amount;
         listItem.querySelector(".expense-date").textContent=expense.date;
         listItem.querySelector("li").dataset.id=expense.id;
-        ulList.appendChild(listItem);
+        const delBtn = listItem.querySelector("button");
+        
+        delBtn.addEventListener("click", function(){
+            deleteEx(expense.id);
         });
+
+    ulList.appendChild(listItem);
+});
+    
 };
+
+function deleteEx(id){
+    expenses = expenses.filter((expense)=> expense.id !== id);
+    localStorage.setItem('expenses', JSON.stringify(expenses));
+    displayExpenses();
+};
+
+function removeExpense(event){
+    const listExpense = event.target.closest("li");
+    const id = listExpense.dataset.id;
+    deleteEx(id);
+}

@@ -1,0 +1,36 @@
+/* Write your desired css here */
+body{
+    height:100vh;
+    width:100wh;
+    background-color:#F6F193;
+}
+.container{
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform:translate(-50%, -50%);
+    height:6rem;
+    width:19rem;
+    padding:1rem;
+    background-color:#f1f1f1;
+    border-radius:10px;
+    box-shadow: rgba(0, 0, 0, 0.35) 0px 5px 15px;
+}
+#textInput{
+    width:15rem;
+    padding:1rem;
+    background-color:#F6F193;
+    border:none;
+    border-radius:7px;
+    outline:none;
+    word-wrap:break-word;
+}
+p{
+    letter-spacing:0.7px;
+    font-size: 16px;
+}
+#charCount{
+    font-weight:bold;
+    letter-spacing:1.5px;
+    
+}

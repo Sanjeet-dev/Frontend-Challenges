@@ -1,0 +1,48 @@
+body{
+    width:100vw;
+    height:100vh;
+    background-color: #f1f1f1;
+}
+#container{
+    width:15rem;
+    height:11rem;   
+    position:absolute;
+    top:50%;
+    left:50%;
+    transform: translate(-50%, -50%);
+    background-color:aqua;
+    text-align:center;
+    border-radius:10px;
+    outline:none;
+    box-shadow: rgba(0, 0, 0, 0.1) 0px 20px 25px -5px, rgba(0, 0, 0, 0.04) 0px 10px 10px -5px;
+}
+p{
+    margin-left:4.5rem;
+    width:6rem;
+    height:2rem;
+    padding-top:1rem;
+    background-color:darkmagenta;
+    text-align:center;
+}
+#startButton{
+    letter-spacing:0.7px;
+    width:5rem;
+    height:2rem;
+    border-radius:7px;
+    border:none;
+    font-weight:bold;
+
+}
+#clearButton{
+    letter-spacing:0.7px;
+    width:5rem;
+    height:2rem;
+    border-radius:7px;
+    border:none;
+    font-weight:bold;
+}
+button:hover{
+    background-color:black;
+    color:beige;
+    cursor:pointer;
+}
